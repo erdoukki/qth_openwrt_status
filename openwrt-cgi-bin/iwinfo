@@ -1,0 +1,8 @@
+#!/bin/sh
+
+echo "Content-type: text/plain"
+echo ""
+
+iwinfo | sed -nr 's/^([^ ]+) .*/\1/p' | while read dev; do
+        iwinfo "$dev" assoclist
+done
